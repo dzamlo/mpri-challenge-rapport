@@ -1,0 +1,1 @@
+un test pour minted, avec des accent: éàü 

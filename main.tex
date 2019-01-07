@@ -1,0 +1,49 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[
+    a4paper,
+    BCOR=6mm,
+    twoside,
+    openright,
+    DIV=calc,
+    bibliography=totocnumbered,
+    bibliography=openstyle,
+    listof=leveldown
+]{scrreprt}
+
+\usepackage{inc/packages}
+\usepackage{inc/misc}
+\usepackage{inc/minted_conf}
+\usepackage{inc/extra_commands}
+% \usepackage{inc/extra_units}
+\usepackage{inc/embedsources}
+
+% /!\ frenchbsetup (et une partie de babel ?) par encore pris en compte ici
+\newcommand{\thedate}{\today}
+\newcommand{\thetitle}{MPRI Challenge 2018}
+\newcommand{\thesubtitle}{Rapport du groupe AML}
+\newcommand{\theauthor}{Loïc Damien, Anthony Groccia, Maël Jaquier}
+
+
+\begin{document}
+
+
+\input{titlepage}
+
+\tableofcontents
+\listoffigures
+\listoftables
+\listoflistings
+\input{acro}
+
+\input{introduction}
+%\input{exemples}
+\input{rf}
+\input{svm}
+\input{hmm}
+\input{conclusion}
+
+\printbibliography
+\appendix
+
+
+\end{document}

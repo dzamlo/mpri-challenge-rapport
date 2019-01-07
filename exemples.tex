@@ -1,0 +1,32 @@
+\chapter{Exemples}
+
+\dots sur github \fnurl{https://github.com/dzamlo/svd/blob/3ca6b8808ea2606b5673ff4edfec63fd7c9c8c93/src/bit_range.rs} \dots
+
+\dots dans le listing \ref{lst:demo1} \dots
+
+\dots dans le listing \ref{lst:demo2} \dots
+
+\dots dans le listing \ref{lst:struct_bit_range} \dots
+
+\dots dans la PEP8\cite{PEP8} \dots
+
+\includesource[pos=b, mintedoptions={firstline=6, lastline=10}, label=lst:demo1]{rust}{test-minted.rs}
+\includesource[pos=H, mintedoptions={firstline=6, lastline=10}, label=lst:demo2, caption={la légende}]{rust}{test-minted.rs}
+\includesource[pos=H, label=lst:demo3]{text}{test_minted2.txt}
+\includesource[long, mintedoptions={breakbytoken=false}]{rust}{test-minted.rs}
+
+
+% on peut aussi être plus explicite:
+\begin{listing}
+    \inputminted[firstline=6, lastline=10]{rust}{test-minted.rs}
+    \attachcaption{test-minted.rs}{une 1\iere légende}
+    \label{lst:struct_bit_range}
+\end{listing}
+
+\begin{longlisting}
+    \inputmintedcaption[breakbytoken=false, highlightlines={1, 3-4}]{rust}{\attachcaption{test-minted.rs}{une 2\ieme légende}}{test-minted.rs}
+\end{longlisting}
+
+
+
+
