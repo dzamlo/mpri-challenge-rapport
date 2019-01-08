@@ -1,1 +1,22 @@
 \chapter{Introduction}
+Le challenge a pour objectif de déterminer l'état de batteries grâce à l'apprentissage machine via trois algorithmes qui sont \ac{RF}, \ac{SVM} et \ac{HMM}.
+
+\section{Données}
+Les données ont été fournies sous la forme de 3 fichiers au format pickle contenant chacun une dataframe pandas.
+Ces trois fichiers contiennent les mesures de 6 batteries réparties dans un ensemble d'entraînement, de validation et de test.\newline
+L'ensemble d'entraînement contient les données de 4 batteries avec un total de 456 cycles de charges et 450 cycles de décharge. Les ensembles de validation et de test contiennent 31 cycles de charges et 28 cycles de décharge.\newline
+Les dataframes sont constituées des colonnes suivantes:
+\begin{itemize}
+    \item La date et l'heure de la mesure.
+    \item Le numéro de la batterie.
+    \item Le numéro de la charge.
+    \item La tension mesurée.
+    \item Le courant mesuré.
+    \item La température mesurée.
+    \item Le courant fourni ou consommé par le système de charge ou décharge.
+    \item La tension fournie ou consommée par le système de charge ou décharge.
+    \item La température ambiante.
+    \item Le numéro de la décharge.
+    \item La capacité mesurée.
+    \item La qualité de la batterie pour les ensembles d'entraînement et de validation.
+\end{itemize}
