@@ -11,6 +11,7 @@ Comme la qualité des batteries ne peux que se dégrader ou rester stable, le \a
 
 \subsection{Modèle}
 Les modèles sont construit avec les mêmes paramètres de départ qui sont:
+
 \begin{itemize}
     \item un vecteur de probabilité de départ.
     \item une matrice de transport.
@@ -75,6 +76,7 @@ Des données importées, nous supprimons les références à la date et l'heure 
 Nous séparons ensuite les cycles de charge et de décharge pour les traiter.
 
 Les mesures ont des sauts importants au début comme le montre la figure \ref{fig:courFull}. Afin que cela n'influence pas la prédiction les 2 premiers éléments de chaque mesure sont supprimés. La figure \ref{fig:courTron} montre le résultat qui est utilisé pour calculer les features.
+
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{images/currentmeas.png}
@@ -97,17 +99,22 @@ apportait le plus au modèle.
 
 \subsection{Charge}
 Les features sélectionnées pour la charge sont les suivantes:
-- Le maximum de la tension mesurée
-- Le 25\ieme centile de la tension mesurée
-- Le 25\ieme centile du courant mesuré
-- La médiane de la température mesurée
-- Le 25\ieme centile de la température mesurée
-- Le maximum de la différence entre deux mesures de la température
+
+\begin{itemize}
+    \item Le maximum de la tension mesurée
+    \item Le 25\ieme centile de la tension mesurée
+    \item Le 25\ieme centile du courant mesuré
+    \item La médiane de la température mesurée
+    \item Le 25\ieme centile de la température mesurée
+    \item Le maximum de la différence entre deux mesures de la température
+\end{itemize}
 
 \subsection{Décharge}
 Les features sélectionnées pour la décharge sont les suivantes:
-- Le minimum de la capacité
-- Le maximum de la tension mesurée
+\begin{itemize}
+    \item Le minimum de la capacité
+    \item Le maximum de la tension mesurée
+\end{itemize}
 
 \section{Choix des paramètres}
 Pour sélectionner les meilleurs paramètres, le nombre d'éléments et d'itérations ont été essayé de manière croisée avec des valeurs allant de 3 à 20.
@@ -116,7 +123,7 @@ Le meilleur résultat a été obtenu pour dix itérations et 5 composants.
 
 \section{Résultats}
 \subsection{Charge}
-Pour un modèle ne prenant en compte que la charge, nous obtenons la matrice de confusion de la figure \ref{fig:HMMconfCha}
+Pour un modèle ne prenant en compte que la charge, nous obtenons la matrice de confusion de la figure \ref{fig:HMMconfCha}. Les scores obtenus sont de 54.84\% et de 0.54 pour le F1.
 
 \begin{figure}
     \centering
@@ -125,6 +132,8 @@ Pour un modèle ne prenant en compte que la charge, nous obtenons la matrice de 
     \label{fig:HMMconfCha}
 \end{figure}
 
+En utilisant uniquement la décharge, la matrice de confusion devient la figure \ref{fig:HMMconfDecha}. Les scores obtenus sont de 57.14\% et de 0.59 pour le F1. C'est meilleur que la charge. 
+
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{images/Confdech.png}
@@ -132,9 +141,13 @@ Pour un modèle ne prenant en compte que la charge, nous obtenons la matrice de 
     \label{fig:HMMconfDecha}
 \end{figure}
 
+La fusion des deux donne la matrice de confusion de la figure \ref{fig:HMMconfboth} avec les scores de 61.29\% et de 0.64 pour le F1.
+
 \begin{figure}
     \centering
     \includegraphics[scale=0.5]{images/Confboth.png}
     \caption{Matrice de confusion pour les deux cycles}
     \label{fig:HMMconfboth}
 \end{figure}
+
+On remarque que le modèle tend à prédire un état moyen de la batterie.
