@@ -77,14 +77,14 @@ Nous séparons ensuite les cycles de charge et de décharge pour les traiter.
 
 Les mesures ont des sauts importants au début comme le montre la figure \ref{fig:courFull}. Afin que cela n'influence pas la prédiction les 2 premiers éléments de chaque mesure sont supprimés. La figure \ref{fig:courTron} montre le résultat qui est utilisé pour calculer les features.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{images/currentmeas.png}
     \caption{Courant mesuré complet}
     \label{fig:courFull}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{images/currentmeasfilt.png}
     \caption{Courant mesuré tronqué}
@@ -125,7 +125,7 @@ Le meilleur résultat a été obtenu pour dix itérations et 5 composants.
 \subsection{Charge}
 Pour un modèle ne prenant en compte que la charge, nous obtenons la matrice de confusion de la figure \ref{fig:HMMconfCha}. Les scores obtenus sont de 54.84\% et de 0.54 pour le F1.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{images/Confcha.png}
     \caption{Matrice de confusion pour la charge}
@@ -134,7 +134,7 @@ Pour un modèle ne prenant en compte que la charge, nous obtenons la matrice de 
 
 En utilisant uniquement la décharge, la matrice de confusion devient la figure \ref{fig:HMMconfDecha}. Les scores obtenus sont de 57.14\% et de 0.59 pour le F1. C'est meilleur que la charge. 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{images/Confdech.png}
     \caption{Matrice de confusion pour la décharge}
@@ -143,7 +143,7 @@ En utilisant uniquement la décharge, la matrice de confusion devient la figure 
 
 La fusion des deux donne la matrice de confusion de la figure \ref{fig:HMMconfboth} avec les scores de 61.29\% et de 0.64 pour le F1.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{images/Confboth.png}
     \caption{Matrice de confusion pour les deux cycles}
@@ -151,3 +151,9 @@ La fusion des deux donne la matrice de confusion de la figure \ref{fig:HMMconfbo
 \end{figure}
 
 On remarque que le modèle tend à prédire un état moyen de la batterie.
+
+\section{Conclusion \ac{HMM}}
+Les résultats globaux pour le \ac{HMM} ne sont pas excellents. Au vu des résultats sur l'ensemble d'entraînement qui sont pour rappel d'environ 50\%, cela implique que le modèle est sûrement victime de surapprentissage pour l'ensemble de validation.
+Ce fait aurait pu être éviter avec l'implantation de validation croisée, malheureusement le temps à manquer.
+Le choix des features n'a pas été fait de manière optimale. En effet, les tests pour chaque nouvelle features était long et non-automatique.
+Il aurait été plus efficace de mettre en place un système permettant de visualiser les features entre elles pour obtenir un tri plus visuel et rapide.
